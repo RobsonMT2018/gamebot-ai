@@ -33,16 +33,44 @@ O projeto foi pensado como um assistente de criação de jogos com foco em produ
 - receber respostas em português
 - continuar trabalhando mesmo quando a chave da OpenAI não estiver configurada, usando fallback local
 
+### Fase 1 — Fundação
+
 <p align="center">
-  <img src="./project-architecture.svg" alt="Arquitetura do GameBot AI" width="1000" />
+  <img src="./project-phase1-architecture.svg" alt="Arquitetura da Fase 1 do GameBot AI" width="1100" />
+</p>
+
+Nesta fase a base foi criada: frontend em React, backend em Express, rota de chat e integração com a IA.
+
+### Fase 2 — Game Studio e gestão de projetos
+
+<p align="center">
+  <img src="./project-phase2-architecture.svg" alt="Arquitetura da Fase 2 do GameBot AI" width="1100" />
+</p>
+
+Nesta fase foram adicionados painel de projetos, criação de novos projetos, seleção do projeto ativo e persistência do histórico por contexto.
+
+### Fase 3 — Expansão do produto
+
+<p align="center">
+  <img src="./project-phase3-architecture.svg" alt="Arquitetura da Fase 3 do GameBot AI" width="1100" />
+</p>
+
+Nesta fase a plataforma evolui para um produto mais completo, com foco em autenticação, banco de dados e expansão para personagens, mundos e exportação de ideias.
+
+### Fase 4 — Publicação e operação
+
+<p align="center">
+  <img src="./project-phase4-architecture.svg" alt="Arquitetura da Fase 4 do GameBot AI" width="1100" />
+</p>
+
+Na fase final, o sistema entra em ciclo de operação, deploy, testes e manutenção contínua, preparando a aplicação para produção.
+
+<p align="center">
+  <img src="./project-architecture.svg" alt="Arquitetura geral do GameBot AI" width="1000" />
 </p>
 
 <p align="center">
-  <img src="./project-flow.svg" alt="Fluxo do GameBot AI" width="1100" />
-</p>
-
-<p align="center">
-  <img src="./project-phase2.svg" alt="Fase 2 do GameBot AI" width="1100" />
+  <img src="./project-flow.svg" alt="Fluxo principal do GameBot AI" width="1100" />
 </p>
 
 ---

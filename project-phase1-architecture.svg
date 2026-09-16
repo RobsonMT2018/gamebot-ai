@@ -1,0 +1,72 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Fase 1 - Arquitetura do GameBot AI</title>
+  <desc id="desc">Diagrama da arquitetura inicial com frontend React, backend Express e integração com OpenAI.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1">
+      <stop offset="0%" stop-color="#061323"/>
+      <stop offset="100%" stop-color="#0d1b2a"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" x2="1">
+      <stop offset="0%" stop-color="#132a45"/>
+      <stop offset="100%" stop-color="#1c3d67"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" x2="1">
+      <stop offset="0%" stop-color="#66d9ff"/>
+      <stop offset="100%" stop-color="#8a5cff"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 z" fill="#8ed8ff"/>
+    </marker>
+    <style>
+      .title { font: 700 32px 'Segoe UI', sans-serif; fill: #eaf7ff; }
+      .section { font: 700 22px 'Segoe UI', sans-serif; fill: #9ad5ff; }
+      .label { font: 600 18px 'Segoe UI', sans-serif; fill: #eaf7ff; }
+      .small { font: 500 15px 'Segoe UI', sans-serif; fill: #dbeafe; }
+      .box { fill: url(#panel); stroke: rgba(126,211,252,0.55); stroke-width: 2; rx: 18; }
+      .box-accent { fill: rgba(102,217,255,0.08); stroke: rgba(134,230,255,0.8); stroke-width: 2; rx: 18; }
+      .line { stroke: #8ed8ff; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <rect width="1200" height="700" fill="url(#bg)"/>
+  <text x="600" y="60" text-anchor="middle" class="title">Fase 1 — Fundação do GameBot AI</text>
+
+  <rect x="60" y="120" width="220" height="180" class="box"/>
+  <text x="170" y="160" text-anchor="middle" class="section">Usuário</text>
+  <text x="170" y="205" text-anchor="middle" class="label">Frontend React</text>
+  <text x="170" y="240" text-anchor="middle" class="small">Chat, input, UX</text>
+  <text x="170" y="270" text-anchor="middle" class="small">ideias e prompts</text>
+
+  <rect x="360" y="120" width="260" height="180" class="box-accent"/>
+  <text x="490" y="160" text-anchor="middle" class="section">Client</text>
+  <text x="490" y="205" text-anchor="middle" class="label">Vite + React</text>
+  <text x="490" y="240" text-anchor="middle" class="small">envia requisições</text>
+  <text x="490" y="270" text-anchor="middle" class="small">para /api/chat</text>
+
+  <rect x="710" y="120" width="260" height="180" class="box-accent"/>
+  <text x="840" y="160" text-anchor="middle" class="section">Backend</text>
+  <text x="840" y="205" text-anchor="middle" class="label">Express + Node.js</text>
+  <text x="840" y="240" text-anchor="middle" class="small">valida mensagem</text>
+  <text x="840" y="270" text-anchor="middle" class="small">chama serviço da IA</text>
+
+  <rect x="470" y="420" width="260" height="180" class="box"/>
+  <text x="600" y="460" text-anchor="middle" class="section">IA / Serviço</text>
+  <text x="600" y="505" text-anchor="middle" class="label">OpenAI / Fallback</text>
+  <text x="600" y="540" text-anchor="middle" class="small">respostas criativas</text>
+  <text x="600" y="570" text-anchor="middle" class="small">em português</text>
+
+  <path d="M280 210 H360" class="line"/>
+  <path d="M620 210 H710" class="line"/>
+  <path d="M840 300 V420" class="line"/>
+  <path d="M710 510 H730 L600 510 L600 420" class="line"/>
+
+  <rect x="125" y="365" width="180" height="90" rx="18" fill="rgba(102,217,255,0.10)" stroke="rgba(255,255,255,0.18)"/>
+  <text x="215" y="405" text-anchor="middle" class="label">Prompt</text>
+  <text x="215" y="432" text-anchor="middle" class="small">ideia do jogo</text>
+
+  <rect x="915" y="365" width="180" height="90" rx="18" fill="rgba(138,92,255,0.10)" stroke="rgba(255,255,255,0.18)"/>
+  <text x="1005" y="405" text-anchor="middle" class="label">Resposta</text>
+  <text x="1005" y="432" text-anchor="middle" class="small">retorna ao usuário</text>
+
+  <path d="M305 410 H915" class="line"/>
+  <path d="M915 410 Q890 410 840 360" class="line"/>
+</svg>

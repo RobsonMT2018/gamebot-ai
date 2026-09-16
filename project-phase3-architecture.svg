@@ -1,0 +1,61 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Fase 3 - Arquitetura do GameBot AI</title>
+  <desc id="desc">Diagrama da arquitetura avançada com autenticação, banco, exportação e expansão do produto.</desc>
+  <defs>
+    <linearGradient id="bg3" x1="0" x2="1">
+      <stop offset="0%" stop-color="#07131f"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+    <marker id="arrow3" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 z" fill="#9ae6b4"/>
+    </marker>
+    <style>
+      .title { font: 700 32px 'Segoe UI', sans-serif; fill: #f0fdf4; }
+      .section { font: 700 22px 'Segoe UI', sans-serif; fill: #b7f7c6; }
+      .label { font: 600 18px 'Segoe UI', sans-serif; fill: #eefdf5; }
+      .small { font: 500 15px 'Segoe UI', sans-serif; fill: #dcfce7; }
+      .box { fill: rgba(17,24,39,0.95); stroke: rgba(154,230,180,0.55); stroke-width: 2; rx: 18; }
+      .box2 { fill: rgba(34,197,94,0.08); stroke: rgba(134,239,172,0.65); stroke-width: 2; rx: 18; }
+      .line { stroke: #9ae6b4; stroke-width: 3; fill: none; marker-end: url(#arrow3); }
+    </style>
+  </defs>
+  <rect width="1200" height="700" fill="url(#bg3)"/>
+  <text x="600" y="60" text-anchor="middle" class="title">Fase 3 — Expansão e produto</text>
+
+  <rect x="70" y="120" width="220" height="180" class="box2"/>
+  <text x="180" y="160" text-anchor="middle" class="section">Usuário</text>
+  <text x="180" y="205" text-anchor="middle" class="label">Login / conta</text>
+  <text x="180" y="240" text-anchor="middle" class="small">perfil e projetos</text>
+  <text x="180" y="270" text-anchor="middle" class="small">pessoais</text>
+
+  <rect x="350" y="120" width="230" height="180" class="box"/>
+  <text x="465" y="160" text-anchor="middle" class="section">Frontend</text>
+  <text x="465" y="205" text-anchor="middle" class="label">Dashboard</text>
+  <text x="465" y="240" text-anchor="middle" class="small">projetos, mapas,</text>
+  <text x="465" y="270" text-anchor="middle" class="small">personagens e dados</text>
+
+  <rect x="650" y="120" width="220" height="180" class="box2"/>
+  <text x="760" y="160" text-anchor="middle" class="section">API</text>
+  <text x="760" y="205" text-anchor="middle" class="label">Node + Express</text>
+  <text x="760" y="240" text-anchor="middle" class="small">auth, CRUD,</text>
+  <text x="760" y="270" text-anchor="middle" class="small">exportação e regras</text>
+
+  <rect x="930" y="120" width="200" height="180" class="box"/>
+  <text x="1030" y="160" text-anchor="middle" class="section">Dados</text>
+  <text x="1030" y="205" text-anchor="middle" class="label">Banco</text>
+  <text x="1030" y="240" text-anchor="middle" class="small">projetos, NPCs,</text>
+  <text x="1030" y="270" text-anchor="middle" class="small">fases e metas</text>
+
+  <rect x="300" y="420" width="600" height="170" class="box2"/>
+  <text x="600" y="460" text-anchor="middle" class="section">Sistemas avançados</text>
+  <text x="600" y="505" text-anchor="middle" class="label">personagens, mundos, mapas, JSON, exportação, analytics</text>
+  <text x="600" y="540" text-anchor="middle" class="small">mecânicas, quests, protótipos e geração guiada</text>
+  <text x="600" y="570" text-anchor="middle" class="small">para suporte ao processo criativo</text>
+
+  <path d="M290 210 H350" class="line"/>
+  <path d="M580 210 H650" class="line"/>
+  <path d="M870 210 H930" class="line"/>
+  <path d="M600 300 V420" class="line"/>
+  <path d="M760 300 V420" class="line"/>
+  <path d="M465 300 V420" class="line"/>
+</svg>

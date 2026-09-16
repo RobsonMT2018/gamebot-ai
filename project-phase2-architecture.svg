@@ -1,0 +1,66 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Fase 2 - Arquitetura do GameBot AI</title>
+  <desc id="desc">Diagrama da arquitetura de projetos, histórico e painel de projetos do GameBot AI.</desc>
+  <defs>
+    <linearGradient id="bg2" x1="0" x2="1">
+      <stop offset="0%" stop-color="#071728"/>
+      <stop offset="100%" stop-color="#101a2d"/>
+    </linearGradient>
+    <marker id="arrow2" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 z" fill="#7fe7ff"/>
+    </marker>
+    <style>
+      .title { font: 700 32px 'Segoe UI', sans-serif; fill: #ebf7ff; }
+      .section { font: 700 22px 'Segoe UI', sans-serif; fill: #9dddff; }
+      .label { font: 600 18px 'Segoe UI', sans-serif; fill: #eef9ff; }
+      .small { font: 500 15px 'Segoe UI', sans-serif; fill: #dbeafe; }
+      .box { fill: rgba(18,31,48,0.92); stroke: rgba(127,231,255,0.45); stroke-width: 2; rx: 18; }
+      .box2 { fill: rgba(52,88,173,0.18); stroke: rgba(147,197,253,0.7); stroke-width: 2; rx: 18; }
+      .line { stroke: #7fe7ff; stroke-width: 3; fill: none; marker-end: url(#arrow2); }
+    </style>
+  </defs>
+  <rect width="1200" height="700" fill="url(#bg2)"/>
+  <text x="600" y="60" text-anchor="middle" class="title">Fase 2 — Game Studio e projetos</text>
+
+  <rect x="60" y="120" width="240" height="200" class="box2"/>
+  <text x="180" y="160" text-anchor="middle" class="section">Projeto</text>
+  <text x="180" y="205" text-anchor="middle" class="label">Nome</text>
+  <text x="180" y="240" text-anchor="middle" class="small">foco e visão</text>
+  <text x="180" y="270" text-anchor="middle" class="small">do jogo</text>
+
+  <rect x="360" y="120" width="220" height="200" class="box"/>
+  <text x="470" y="160" text-anchor="middle" class="section">Sidebar</text>
+  <text x="470" y="205" text-anchor="middle" class="label">Lista de projetos</text>
+  <text x="470" y="240" text-anchor="middle" class="small">criar novo</text>
+  <text x="470" y="270" text-anchor="middle" class="small">selecionar ativo</text>
+
+  <rect x="640" y="120" width="240" height="200" class="box2"/>
+  <text x="760" y="160" text-anchor="middle" class="section">Chat</text>
+  <text x="760" y="205" text-anchor="middle" class="label">Mensagens por projeto</text>
+  <text x="760" y="240" text-anchor="middle" class="small">prompt + resposta</text>
+  <text x="760" y="270" text-anchor="middle" class="small">histórico contextual</text>
+
+  <rect x="930" y="120" width="210" height="200" class="box"/>
+  <text x="1035" y="160" text-anchor="middle" class="section">IA</text>
+  <text x="1035" y="205" text-anchor="middle" class="label">GameBot</text>
+  <text x="1035" y="240" text-anchor="middle" class="small">respostas</text>
+  <text x="1035" y="270" text-anchor="middle" class="small">estruturadas</text>
+
+  <rect x="340" y="420" width="520" height="170" class="box2"/>
+  <text x="600" y="460" text-anchor="middle" class="section">Persistência</text>
+  <text x="600" y="505" text-anchor="middle" class="label">localStorage + backend</text>
+  <text x="600" y="540" text-anchor="middle" class="small">projeto ativo, mensagens e estado do jogo</text>
+  <text x="600" y="570" text-anchor="middle" class="small">continuam após reload</text>
+
+  <path d="M300 220 H360" class="line"/>
+  <path d="M580 220 H640" class="line"/>
+  <path d="M880 220 H930" class="line"/>
+  <path d="M470 320 V420" class="line"/>
+  <path d="M760 320 V420" class="line"/>
+  <path d="M600 590 H600 L600 660" class="line"/>
+
+  <rect x="70" y="450" width="170" height="120" rx="18" fill="rgba(127,231,255,0.08)" stroke="rgba(255,255,255,0.18)"/>
+  <text x="155" y="500" text-anchor="middle" class="label">Dados</text>
+  <text x="155" y="532" text-anchor="middle" class="small">projeto, foco e</text>
+  <text x="155" y="555" text-anchor="middle" class="small">mensagens</text>
+</svg>
