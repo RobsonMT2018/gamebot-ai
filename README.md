@@ -135,37 +135,37 @@ recursos para desenvolvedores iniciantes e experientes.
 ```text
 gamebot-ai/
 ├── README.md
+├── .gitignore
 ├── project-architecture.svg
 ├── project-flow.svg
-├── .gitignore
+├── project-phase2.svg
 ├── gamebot-ai/
+│   ├── package.json
 │   ├── client/
-│   │   ├── public/
-│   │   ├── src/
-│   │   │   ├── App.jsx
-│   │   │   ├── App.css
-│   │   │   ├── main.jsx
-│   │   │   ├── index.css
-│   │   │   └── assets/
 │   │   ├── package.json
 │   │   ├── vite.config.js
 │   │   ├── index.html
-│   │   └── eslint.config.js
-│   │
+│   │   ├── public/
+│   │   └── src/
+│   │       ├── App.jsx
+│   │       ├── App.css
+│   │       ├── main.jsx
+│   │       ├── index.css
+│   │       └── assets/
 │   └── server/
-│       ├── src/
-│       │   ├── server.js
-│       │   ├── routes/
-│       │   │   └── chatRoutes.js
-│       │   ├── controllers/
-│       │   │   └── chatController.js
-│       │   └── services/
-│       │       └── gamebotService.js
+│       ├── package.json
 │       ├── .env
 │       ├── .env.example
-│       ├── package.json
-│       └── tests/
-│           └── gamebotService.test.js
+│       ├── tests/
+│       │   └── gamebotService.test.js
+│       └── src/
+│           ├── server.js
+│           ├── routes/
+│           │   └── chatRoutes.js
+│           ├── controllers/
+│           │   └── chatController.js
+│           └── services/
+│               └── gamebotService.js
 ```
 
 ### Explicação da estrutura
@@ -227,49 +227,85 @@ A resposta da IA é retornada ao frontend e exibida no chat.
 ### 1. Clone o repositório
 
 ```bash
-git clone https://github.com/SEU-USUARIO/gamebot-ai.git
+git clone https://github.com/RobsonMT2018/gamebot-ai.git
 cd gamebot-ai
 ```
 
-### 2. Instale dependências do frontend
+### 2. Instale as dependências do projeto principal
 
 ```bash
-cd gamebot-ai/client
+cd gamebot-ai
 npm install
 ```
 
-### 3. Instale dependências do backend
+### 3. Instale as dependências do frontend e do backend
 
 ```bash
-cd ../server
-npm install
+npm --prefix client install
+npm --prefix server install
 ```
 
-### 4. Configure o ambiente do backend
-Crie o arquivo `.env` dentro da pasta `server` com base no exemplo:
+### 4. Configure a chave da OpenAI
+
+Dentro da pasta do backend, copie o arquivo de exemplo e edite o valor:
+
+```bash
+cp gamebot-ai/server/.env.example gamebot-ai/server/.env
+```
+
+Depois abra o arquivo e substitua o valor:
 
 ```env
 PORT=5000
-OPENAI_API_KEY=sua_chave_da_openai
+OPENAI_API_KEY=sua_chave_da_openai_aqui
 ```
 
-### 5. Inicie o backend
+> O projeto já está pronto para usar a chave real da OpenAI. Quando a variável estiver configurada, o backend chama a API do OpenAI. Se a chave não existir, o sistema usa um fallback local para não quebrar a aplicação.
+
+### 5. Rode o projeto completo
+
+Na raiz do projeto:
 
 ```bash
-cd ../server
-npm start
-```
-
-### 6. Inicie o frontend
-
-Em outro terminal:
-
-```bash
-cd ../client
 npm run dev
 ```
 
-Acesse a porta mostrada pelo Vite e teste o chat.
+Isso inicia o frontend e o backend em paralelo.
+
+### 6. Acesse a aplicação
+
+- Frontend: http://localhost:5173
+- Backend: http://localhost:5000
+- Health check: http://localhost:5000/api/health
+
+### 7. Teste o chat
+
+Abra a interface do frontend e envie uma mensagem como:
+
+```text
+Crie um jogo de plataforma em pixel art com tema cyberpunk
+```
+
+Se a chave estiver correta, a IA responderá com geração real. Caso contrário, o sistema entra em modo fallback para continuar funcionando.
+
+### 8. Rodar apenas backend ou frontend
+
+```bash
+npm run server
+```
+
+```bash
+npm run client
+```
+
+---
+
+## 🔐 Segurança da chave da OpenAI
+
+- Nunca compartilhe a chave pública em repositórios
+- Mantenha o arquivo `.env` local e protegido
+- O arquivo `.env` já está ignorado pelo Git via `.gitignore`
+- O arquivo `.env.example` serve como modelo para gerar sua própria chave
 
 ---
 
