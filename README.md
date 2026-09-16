@@ -201,10 +201,10 @@ Acesse o endereço informado pelo Vite.
 
 - [x] Criar repositório no GitHub.
 - [x] Criar README.md.
-- [ ] Configurar frontend React.
-- [ ] Configurar backend Node.js.
-- [ ] Criar interface inicial.
-- [ ] Integrar API de IA.
+- [x] Configurar frontend React.
+- [x] Configurar backend Node.js.
+- [x] Criar interface inicial.
+- [x] Integrar API de IA.
 
 ### 🔵 Fase 2 — Game Studio
 
