@@ -264,6 +264,31 @@ function App() {
     setProjectName("");
   }
 
+  async function syncProjectWithServer(projectId, nextMessages, summaryText) {
+    const currentProject = projects.find((project) => project.id === projectId);
+
+    if (!currentProject) {
+      return;
+    }
+
+    try {
+      await fetch(`/api/projects/${projectId}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: currentProject.name,
+          focus: currentProject.focus,
+          lastIdea: summaryText,
+          messages: nextMessages,
+        }),
+      });
+    } catch (error) {
+      console.error("Erro ao sincronizar projeto com o backend:", error);
+    }
+  }
+
   function updateProjectMessages(projectId, nextMessages, summaryText) {
     setProjects((previousProjects) =>
       previousProjects.map((project) =>
@@ -322,6 +347,7 @@ function App() {
       ];
 
       updateProjectMessages(selectedProjectId, finalMessages, botReply);
+      await syncProjectWithServer(selectedProjectId, finalMessages, botReply);
     } catch (error) {
       const fallbackReply = buildLocalReply(trimmed);
       const finalMessages = [
@@ -333,6 +359,7 @@ function App() {
       ];
 
       updateProjectMessages(selectedProjectId, finalMessages, fallbackReply);
+      await syncProjectWithServer(selectedProjectId, finalMessages, fallbackReply);
     } finally {
       setIsLoading(false);
     }

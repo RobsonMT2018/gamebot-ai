@@ -203,21 +203,28 @@ Resultado verificado: 3 testes aprovados, 0 falhas.
 
 ## 📌 Status do projeto
 
-### Fase atual
+### Fases concluídas
 - [x] Estrutura do monorepo
-- [x] Frontend em React
+- [x] Frontend em React + Vite
 - [x] Backend em Express
 - [x] Chat com IA e fallback
 - [x] Gestão de projetos
-- [x] Documentação atualizada
+- [x] Persistência de projetos e mensagens via API
+- [x] Atualização do README por fase concluída
 - [x] Versionamento no GitHub
 
+### Fase 3 — expansão do produto
+- [x] continuação por projeto
+- [x] histórico de mensagens preservado
+- [x] sincronização de estado com o backend
+- [x] fluxo de criação e atualização de projetos
+
 ### Próximos passos
-- [ ] persistência real no backend para projetos e mensagens
-- [ ] criação de personagens, mundos e missões mais avançados
-- [ ] exportação de ideias em JSON ou arquivos
+- [ ] geração de personagens, mundos e missões mais avançados
+- [ ] exportação de ideias em JSON, markdown ou arquivos
 - [ ] melhorias de UX e navegação
 - [ ] deploy do projeto
+- [ ] integração com banco de dados e autenticação
 
 ---
 

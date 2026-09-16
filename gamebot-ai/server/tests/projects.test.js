@@ -45,3 +45,29 @@ test('POST /api/projects creates a project', async () => {
   assert.equal(response.body.name, 'Teste Persistência');
   assert.ok(Array.isArray(response.body.messages));
 });
+
+test('PATCH /api/projects/:id updates project state', async () => {
+  const created = await request(app, '/api/projects', {
+    method: 'POST',
+    body: JSON.stringify({
+      name: 'Projeto Atualizado',
+      focus: 'Aventura ação',
+      lastIdea: 'Duas cidades em guerra.',
+    }),
+  });
+
+  const updated = await request(app, `/api/projects/${created.body.id}`, {
+    method: 'PATCH',
+    body: JSON.stringify({
+      lastIdea: 'Nova ideia de cidade futurista.',
+      messages: [
+        { type: 'user', text: 'Quero uma nova fase.' },
+        { type: 'bot', text: 'Vamos criar uma fase urbana.' },
+      ],
+    }),
+  });
+
+  assert.equal(updated.status, 200);
+  assert.match(updated.body.lastIdea, /Nova ideia/);
+  assert.equal(updated.body.messages.length, 2);
+});

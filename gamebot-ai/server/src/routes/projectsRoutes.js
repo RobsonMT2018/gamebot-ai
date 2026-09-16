@@ -67,4 +67,33 @@ router.post('/projects', (req, res) => {
   return res.status(201).json(newProject);
 });
 
+router.patch('/projects/:id', (req, res) => {
+  const { id } = req.params;
+  const { name, focus, lastIdea, messages } = req.body || {};
+
+  const projectIndex = projects.findIndex((project) => String(project.id) === String(id));
+
+  if (projectIndex === -1) {
+    return res.status(404).json({
+      success: false,
+      message: 'Projeto não encontrado.',
+    });
+  }
+
+  const project = projects[projectIndex];
+
+  const updatedProject = {
+    ...project,
+    name: name?.trim() || project.name,
+    focus: focus?.trim() || project.focus,
+    lastIdea: lastIdea?.trim() || project.lastIdea,
+    updatedAt: 'agora',
+    messages: Array.isArray(messages) ? messages : project.messages,
+  };
+
+  projects[projectIndex] = updatedProject;
+
+  return res.status(200).json(updatedProject);
+});
+
 export default router;
