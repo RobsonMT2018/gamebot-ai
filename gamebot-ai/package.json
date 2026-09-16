@@ -1,0 +1,14 @@
+{
+  "name": "gamebot-ai",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "concurrently \"npm --prefix client run dev\" \"npm --prefix server run server\"",
+    "client": "npm --prefix client run dev",
+    "server": "npm --prefix server run server",
+    "build": "npm --prefix client run build"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.1"
+  }
+}
