@@ -6,8 +6,8 @@
       <stop offset="0%" stop-color="#0b1020"/>
       <stop offset="100%" stop-color="#111827"/>
     </linearGradient>
-    <marker id="arrow4" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
-      <path d="M0,0 L12,6 L0,12 z" fill="#7dd3fc"/>
+    <marker id="arrow4" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,4 L0,8 z" fill="#7dd3fc"/>
     </marker>
     <style>
       .title { font: 700 32px 'Segoe UI', sans-serif; fill: #e0f2fe; }
@@ -16,7 +16,7 @@
       .small { font: 500 15px 'Segoe UI', sans-serif; fill: #dbeafe; }
       .box { fill: rgba(15,23,42,0.94); stroke: rgba(125,211,252,0.55); stroke-width: 2; rx: 18; }
       .box2 { fill: rgba(59,130,246,0.09); stroke: rgba(147,197,253,0.7); stroke-width: 2; rx: 18; }
-      .line { stroke: #7dd3fc; stroke-width: 3; fill: none; marker-end: url(#arrow4); }
+      .line { stroke: #7dd3fc; stroke-width: 2.2; fill: none; marker-end: url(#arrow4); }
     </style>
   </defs>
   <rect width="1200" height="700" fill="url(#bg4)"/>
