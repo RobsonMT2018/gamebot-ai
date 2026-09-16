@@ -272,7 +272,7 @@ tecnologia e criação de experiências digitais.
 
 <br>
 
-<a href="https://github.com/SEU-USUARIO">
+<a href="https://github.com/RobsonMT2018/gamebot-ai">
   <img src="https://img.shields.io/badge/GitHub-Perfil-181717?style=for-the-badge&logo=github" alt="GitHub">
 </a>
 
