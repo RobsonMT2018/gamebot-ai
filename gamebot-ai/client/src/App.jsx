@@ -5,15 +5,17 @@ import "./App.css";
 const initialMessages = [
   {
     type: "bot",
-    text: "Não foi possível conectar ao servidor.",
+    text:
+      "Crie um jogo de plataforma em pixel art com fases curtas, protagonista com pulo duplo e chefão final.",
   },
   {
     type: "user",
-    text: "Você cria um jogo 2D estilo snake",
+    text: "Quero uma ideia para um jogo 2D com temática cyberpunk.",
   },
   {
     type: "bot",
-    text: "Não foi possível conectar ao servidor.",
+    text:
+      "Posso ajudar com mecânicas, personagens, níveis e roteiro. Diga o estilo do jogo que você quer criar.",
   },
   {
     type: "user",
