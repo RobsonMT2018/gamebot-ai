@@ -37,6 +37,14 @@ O GameBot AI é uma aplicação web de assistente inteligente para criação de 
   <img src="./project-flow.svg" alt="Fluxo principal do GameBot AI" width="1100" />
 </p>
 
+### Fase 2 implementada
+
+<p align="center">
+  <img src="./project-phase2.svg" alt="Fase 2 do GameBot AI" width="1100" />
+</p>
+
+Nesta etapa, o chat evoluiu para um ambiente mais produtivo, com painel de projetos, ações rápidas, melhor contexto visual, geração de ideias e respostas mais estruturadas para personagens, missões e fases.
+
 ---
 
 ## 🧠 Sobre o Projeto
@@ -207,6 +215,10 @@ A resposta da IA é retornada ao frontend e exibida no chat.
 - Respostas em português
 - Estrutura modular para evolução do projeto
 - Backend pronto para integração com IA
+- Painel lateral de projetos
+- Ações rápidas de criação de ideias
+- Melhor UX e contexto do projeto em andamento
+- Geração de resposta orientada a personagens, missões e fases
 
 ---
 
