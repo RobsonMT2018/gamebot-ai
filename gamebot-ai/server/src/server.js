@@ -3,10 +3,11 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 
 import chatRoutes from './routes/chatRoutes.js';
+import projectsRoutes from './routes/projectsRoutes.js';
 
 dotenv.config();
 
-const app = express();
+export const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(cors());
@@ -29,7 +30,16 @@ app.get('/api/health', (req, res) => {
 });
 
 app.use('/api', chatRoutes);
+app.use('/api', projectsRoutes);
 
-app.listen(PORT, () => {
-  console.log(`GameBot AI Backend rodando em http://localhost:${PORT}`);
-});
+export function startServer() {
+  return app.listen(PORT, () => {
+    console.log(`GameBot AI Backend rodando em http://localhost:${PORT}`);
+  });
+}
+
+if (process.env.NODE_ENV !== 'test') {
+  startServer();
+}
+
+export default app;

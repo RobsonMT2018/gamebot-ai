@@ -1,144 +1,87 @@
-
 <div align="center">
 
 # 🎮 GameBot AI
 
-### 🤖 Assistente Inteligente para Desenvolvimento de Jogos Digitais
+### 🤖 Assistente inteligente para ideação e desenvolvimento de jogos
 
 <p>
-  <strong>Crie. Explore. Desenvolva. Jogue.</strong>
+  <strong>Crie, organize e evolua ideias de jogos com IA.</strong>
 </p>
 
 <p>
-  Um assistente de inteligência artificial para ajudar
-  desenvolvedores a criar experiências incríveis no mundo dos games.
+  O GameBot AI combina React no frontend, Node.js + Express no backend e integração com OpenAI para apoiar a criação de personagens, missões, fases e conceitos de jogos digitais.
 </p>
 
 <br>
 
-<img src="https://img.shields.io/badge/React-2026-61DAFB?style=for-the-badge&logo=react&logoColor=white" alt="React">
-<img src="https://img.shields.io/badge/Node.js-Backend-339933?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js">
-<img src="https://img.shields.io/badge/AI-Powered-8A2BE2?style=for-the-badge" alt="AI">
-<img src="https://img.shields.io/badge/Status-In%20Development-orange?style=for-the-badge" alt="Status">
+<img src="https://img.shields.io/badge/React-2026-61DAFB?style=for-the-badge&logo=react&logoColor=white" alt="React" />
+<img src="https://img.shields.io/badge/Node.js-Backend-339933?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js" />
+<img src="https://img.shields.io/badge/OpenAI-API-412991?style=for-the-badge&logo=openai&logoColor=white" alt="OpenAI" />
+<img src="https://img.shields.io/badge/Status-MVP-orange?style=for-the-badge" alt="Status" />
 
 </div>
 
-## 🏗️ Visão Geral do Projeto
+---
+
+## 🏗️ Visão geral
+
+O projeto foi pensado como um assistente de criação de jogos com foco em produtividade e experiência de usuário. Ele permite:
+
+- criar projetos de jogo
+- manter histórico por projeto
+- conversar com a IA sobre ideias, personagens e missões
+- receber respostas em português
+- continuar trabalhando mesmo quando a chave da OpenAI não estiver configurada, usando fallback local
 
 <p align="center">
-  <img src="./project-architecture.svg" alt="Estrutura do projeto GameBot AI" width="1000" />
+  <img src="./project-architecture.svg" alt="Arquitetura do GameBot AI" width="1000" />
 </p>
-
-O GameBot AI é uma aplicação web de assistente inteligente para criação de ideias, mecânicas, personagens e conceitos de jogos. O projeto combina uma interface moderna em React com um backend em Express e integração com a OpenAI para gerar respostas criativas em português.
-
-### Fluxo principal do sistema
 
 <p align="center">
-  <img src="./project-flow.svg" alt="Fluxo principal do GameBot AI" width="1100" />
+  <img src="./project-flow.svg" alt="Fluxo do GameBot AI" width="1100" />
 </p>
-
-### Fase 2 implementada
 
 <p align="center">
   <img src="./project-phase2.svg" alt="Fase 2 do GameBot AI" width="1100" />
 </p>
 
-Nesta etapa, o chat evoluiu para um ambiente mais produtivo, com painel de projetos, ações rápidas, melhor contexto visual, geração de ideias e respostas mais estruturadas para personagens, missões e fases.
-
----
-
-## 🧠 Sobre o Projeto
-
-O **GameBot AI** é um projeto de assistente inteligente
-desenvolvido para auxiliar na criação de jogos digitais.
-
-A proposta é unir inteligência artificial, programação
-e desenvolvimento de games em uma plataforma moderna,
-interativa e intuitiva.
-
-O GameBot poderá ajudar desenvolvedores a criar ideias,
-personagens, missões, mecânicas e códigos para jogos.
-
----
-
-## 🎯 Objetivo
-
-Desenvolver uma plataforma inteligente que facilite
-o processo de criação de jogos digitais, oferecendo
-recursos para desenvolvedores iniciantes e experientes.
-
-### Principais objetivos
-
-- Criar ideias originais para jogos.
-- Gerar personagens e histórias.
-- Criar missões e desafios.
-- Auxiliar na programação de jogos.
-- Integrar ferramentas de desenvolvimento.
-- Criar uma experiência gamer moderna.
-
 ---
 
 ## ✨ Funcionalidades
 
-### 🤖 Assistente de IA
+### Chat inteligente
+- sugestões de ideias para jogos
+- criação de personagens, missões, fases e desafios
+- respostas em português
+- visual gamer e ambiente moderno
 
-- Chat inteligente.
-- Respostas em português.
-- Sugestões de desenvolvimento.
-- Auxílio na programação.
+### Gestão de projetos
+- painel lateral com projetos
+- criação de projetos em tempo real
+- seleção do projeto ativo
+- histórico por projeto
+- persistência local no frontend
 
-### 🎮 Game Studio
-
-- Gerador de ideias de jogos.
-- Gerador de personagens.
-- Gerador de missões.
-- Gerador de inimigos.
-- Criação de conceitos de fases.
-
-### 💻 Desenvolvimento
-
-- Suporte a JavaScript.
-- Suporte a React.
-- Suporte a Phaser.
-- Suporte a Three.js.
-- Suporte a C# e Unity.
-
-### 🎨 Interface
-
-- Design gamer futurista.
-- Tema dark.
-- Azul neon.
-- Layout responsivo.
-- Chat interativo.
+### Backend e API
+- servidor em Express
+- rota de saúde em /api/health
+- rota de chat em /api/chat
+- rota de projetos em /api/projects
+- fallback funcional quando a IA não está disponível
 
 ---
 
-## 🛠️ Tecnologias
-
-| Tecnologia | Utilização |
-|------------|------------|
-| React.js | Interface do usuário |
-| JavaScript | Lógica da aplicação |
-| CSS3 | Estilização |
-| Node.js | Backend |
-| Express | API REST |
-| OpenAI API | Inteligência artificial |
-| Phaser | Desenvolvimento de jogos 2D |
-| Three.js | Desenvolvimento 3D |
-| Git | Controle de versão |
-| GitHub | Hospedagem do código |
-
----
-
-## 📁 Estrutura do Projeto
+## 🧩 Estrutura do projeto
 
 ```text
 gamebot-ai/
 ├── README.md
 ├── .gitignore
+├── LICENSE
 ├── project-architecture.svg
 ├── project-flow.svg
 ├── project-phase2.svg
+├── package-lock.json
 ├── gamebot-ai/
 │   ├── package.json
 │   ├── client/
@@ -149,80 +92,46 @@ gamebot-ai/
 │   │   └── src/
 │   │       ├── App.jsx
 │   │       ├── App.css
-│   │       ├── main.jsx
 │   │       ├── index.css
+│   │       ├── main.jsx
 │   │       └── assets/
 │   └── server/
 │       ├── package.json
 │       ├── .env
 │       ├── .env.example
 │       ├── tests/
-│       │   └── gamebotService.test.js
+│       │   ├── gamebotService.test.js
+│       │   └── projects.test.js
 │       └── src/
 │           ├── server.js
-│           ├── routes/
-│           │   └── chatRoutes.js
 │           ├── controllers/
-│           │   └── chatController.js
+│           │   ├── chatController.js
+│           │   └── gameController.js
+│           ├── routes/
+│           │   ├── chatRoutes.js
+│           │   ├── gameRoutes.js
+│           │   └── projectsRoutes.js
 │           └── services/
+│               ├── aiService.js
+│               ├── api.js
 │               └── gamebotService.js
 ```
 
-### Explicação da estrutura
+---
 
-- client/: interface do usuário em React + Vite
-- src/App.jsx: tela principal do chat e envio de mensagens
-- src/App.css: estilos visuais da aplicação
-- server/: backend em Node.js + Express
-- src/server.js: inicialização da API
-- routes/chatRoutes.js: definição da rota /api/chat
-- controllers/chatController.js: validação da entrada do usuário
-- services/gamebotService.js: lógica de integração com a OpenAI
-- .env: variáveis de ambiente do backend
+## 🛠️ Tecnologias
+
+- React + Vite
+- JavaScript
+- CSS moderno
+- Node.js
+- Express
+- OpenAI API
+- Git + GitHub
 
 ---
 
-## ⚙️ Como o projeto funciona
-
-### 1. Usuário digita uma ideia
-O usuário envia uma mensagem na interface, como:
-- "Crie um jogo de plataforma com temática cyberpunk"
-- "Quero uma ideia de RPG 2D"
-
-### 2. Frontend envia para a API
-O React envia a mensagem para o endpoint:
-
-```text
-POST /api/chat
-```
-
-### 3. Backend valida e processa
-O Express recebe a requisição, chama o controller e envia o texto para o serviço.
-
-### 4. IA gera a resposta
-O serviço verifica se há uma chave da OpenAI configurada e, então, chama a API da OpenAI para gerar uma resposta criativa em português.
-
-### 5. Resposta volta para o usuário
-A resposta da IA é retornada ao frontend e exibida no chat.
-
----
-
-## 🎮 Principais funcionalidades
-
-- Chat interativo para ideias de jogos
-- Sugestões de personagens e mecânicas
-- Criação de conceitos de fases e desafios
-- Respostas em português
-- Estrutura modular para evolução do projeto
-- Backend pronto para integração com IA
-- Painel lateral de projetos
-- Ações rápidas de criação de ideias
-- Melhor UX e contexto do projeto em andamento
-- Geração de resposta orientada a personagens, missões e fases
-
----
-
-## 🚀 Como executar o projeto
+## 🚀 Como executar
 
 ### 1. Clone o repositório
 
@@ -231,33 +140,115 @@ git clone https://github.com/RobsonMT2018/gamebot-ai.git
 cd gamebot-ai
 ```
 
-### 2. Instale as dependências do projeto principal
+### 2. Instale as dependências
 
 ```bash
-cd gamebot-ai
 npm install
+npm --prefix gamebot-ai/client install
+npm --prefix gamebot-ai/server install
 ```
 
-### 3. Instale as dependências do frontend e do backend
+### 3. Configure as variáveis de ambiente
 
-```bash
-npm --prefix client install
-npm --prefix server install
-```
-
-### 4. Configure a chave da OpenAI
-
-Dentro da pasta do backend, copie o arquivo de exemplo e edite o valor:
+No backend, copie o arquivo de exemplo e configure a chave da OpenAI:
 
 ```bash
 cp gamebot-ai/server/.env.example gamebot-ai/server/.env
 ```
 
-Depois abra o arquivo e substitua o valor:
+Arquivo esperado:
 
 ```env
 PORT=5000
-OPENAI_API_KEY=sua_chave_da_openai_aqui
+OPENAI_API_KEY=sua_chave_da_openai
+```
+
+> Se a chave não estiver configurada, o sistema usa resposta local de fallback para manter a aplicação funcionando.
+
+### 4. Inicie o projeto
+
+Na raiz do projeto:
+
+```bash
+npm run dev
+```
+
+### 5. Acesse a aplicação
+
+- Frontend: http://localhost:5173
+- Backend: http://localhost:5000
+- Health check: http://localhost:5000/api/health
+
+---
+
+## 🧪 Validação
+
+Atualmente o projeto possui:
+
+- build do frontend funcionando
+- backend em execução
+- rota de chat validada
+- rota de projetos validada
+- testes do backend executando corretamente
+
+Comando de verificação utilizado:
+
+```bash
+cd /workspaces/gamebot-ai/gamebot-ai/server && node --test
+```
+
+Resultado verificado: 3 testes aprovados, 0 falhas.
+
+---
+
+## 📌 Status do projeto
+
+### Fase atual
+- [x] Estrutura do monorepo
+- [x] Frontend em React
+- [x] Backend em Express
+- [x] Chat com IA e fallback
+- [x] Gestão de projetos
+- [x] Documentação atualizada
+- [x] Versionamento no GitHub
+
+### Próximos passos
+- [ ] persistência real no backend para projetos e mensagens
+- [ ] criação de personagens, mundos e missões mais avançados
+- [ ] exportação de ideias em JSON ou arquivos
+- [ ] melhorias de UX e navegação
+- [ ] deploy do projeto
+
+---
+
+## 🔐 Segurança
+
+- nunca compartilhe a chave da OpenAI publicamente
+- mantenha o arquivo .env localmente
+- o .env já está ignorado no controle de versão
+
+---
+
+## 👨‍💻 Desenvolvedor
+
+Robson Maciel
+
+---
+
+## 📄 Licença
+
+Este projeto está sob a licença MIT.
+
+---
+
+<div align="center">
+
+### 🎮 GameBot AI
+
+<strong>Transformando ideias em mundos digitais.</strong>
+
+</div>
+
 ```
 
 > O projeto já está pronto para usar a chave real da OpenAI. Quando a variável estiver configurada, o backend chama a API do OpenAI. Se a chave não existir, o sistema usa um fallback local para não quebrar a aplicação.

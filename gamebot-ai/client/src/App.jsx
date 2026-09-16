@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Bot,
   Send,
@@ -12,22 +12,8 @@ import {
 } from "lucide-react";
 import "./App.css";
 
-const starterProjects = [
-  {
-    id: 1,
-    name: "Neon Drift",
-    focus: "Corrida cyberpunk",
-    updatedAt: "agora",
-    lastIdea: "Jogador corre por ruas neón enquanto evita drones e coleta energia.",
-  },
-  {
-    id: 2,
-    name: "Dungeon Echo",
-    focus: "RPG em masmorras",
-    updatedAt: "há 10 min",
-    lastIdea: "Labirinto com salas aleatórias, tesouros e chefões de fase.",
-  },
-];
+const STORAGE_KEY = "gamebot-ai-projects-v1";
+const SELECTED_PROJECT_KEY = "gamebot-ai-selected-project-v1";
 
 const initialMessages = [
   {
@@ -50,63 +36,243 @@ const initialMessages = [
   },
 ];
 
+function buildProject(name, focus, lastIdea, messages = []) {
+  return {
+    id: Date.now() + Math.random(),
+    name,
+    focus,
+    updatedAt: "agora",
+    lastIdea,
+    messages,
+  };
+}
+
+const starterProjects = [
+  buildProject(
+    "Neon Drift",
+    "Corrida cyberpunk",
+    "Jogador corre por ruas neón enquanto evita drones e coleta energia.",
+    initialMessages,
+  ),
+  buildProject(
+    "Dungeon Echo",
+    "RPG em masmorras",
+    "Labirinto com salas aleatórias, tesouros e chefões de fase.",
+    [
+      {
+        type: "bot",
+        text: "Vamos criar uma masmorra com desafios e loot estratégico.",
+      },
+      {
+        type: "user",
+        text: "Quero uma ideia de dungeon crawler.",
+      },
+    ],
+  ),
+];
+
 function buildLocalReply(prompt) {
   const normalized = prompt.toLowerCase();
 
-  if (normalized.includes("personagem") || normalized.includes("personagem principal")) {
+  if (
+    normalized.includes("personagem") ||
+    normalized.includes("personagem principal")
+  ) {
     return "Personagem sugerido: Kairo, um hacker órfão de megacidade que usa pulseiras cibernéticas para manipular energia. Ele é rápido, furtivo e aprende novas habilidades ao longo do jogo.";
   }
 
-  if (normalized.includes("missao") || normalized.includes("missão") || normalized.includes("quest")) {
+  if (
+    normalized.includes("missao") ||
+    normalized.includes("missão") ||
+    normalized.includes("quest")
+  ) {
     return "Missão principal: invadir a torre central para desligar a IA corrupta que bloqueia a cidade. A missão deve incluir infiltração, combate em plataforma e escolha de rota entre três setores.";
   }
 
-  if (normalized.includes("fase") || normalized.includes("nivel") || normalized.includes("nível")) {
+  if (
+    normalized.includes("fase") ||
+    normalized.includes("nivel") ||
+    normalized.includes("nível")
+  ) {
     return "Fase sugerida: Ruas de Neon. O jogador atravessa avenidas em alta velocidade, evita drones, coleta energia e enfrenta um miniboss no final da rua principal.";
   }
 
   return `Ideia de jogo: ${prompt}. Crie um jogo em 2D com visual cyberpunk, mecânica de exploração, fases rápidas, mecânico de coleta, inimigos padronizados e uma missão final onde o jogador destrói a rede central da cidade.`;
 }
 
+function loadLocalProjects() {
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY);
+
+    if (!stored) {
+      return starterProjects;
+    }
+
+    const parsed = JSON.parse(stored);
+
+    if (Array.isArray(parsed) && parsed.length > 0) {
+      return parsed;
+    }
+  } catch (error) {
+    console.error("Erro ao carregar projetos salvos:", error);
+  }
+
+  return starterProjects;
+}
+
 function App() {
-  const [projects, setProjects] = useState(starterProjects);
-  const [selectedProjectId, setSelectedProjectId] = useState(starterProjects[0].id);
+  const [projects, setProjects] = useState([]);
+  const [selectedProjectId, setSelectedProjectId] = useState(() => {
+    const saved = localStorage.getItem(SELECTED_PROJECT_KEY);
+    const numericSaved = Number(saved);
+
+    if (saved && !Number.isNaN(numericSaved)) {
+      return numericSaved;
+    }
+
+    return null;
+  });
   const [projectName, setProjectName] = useState("");
   const [message, setMessage] = useState("");
-  const [messages, setMessages] = useState(initialMessages);
   const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    async function loadProjectsFromServer() {
+      try {
+        const response = await fetch("/api/projects");
+
+        if (!response.ok) {
+          throw new Error("Erro ao carregar projetos do backend");
+        }
+
+        const serverProjects = await response.json();
+
+        if (Array.isArray(serverProjects) && serverProjects.length > 0) {
+          setProjects(serverProjects);
+          setSelectedProjectId((currentSelection) => {
+            const saved = localStorage.getItem(SELECTED_PROJECT_KEY);
+            const candidate = Number(saved);
+
+            if (saved && !Number.isNaN(candidate)) {
+              return serverProjects.some((project) => project.id === candidate)
+                ? candidate
+                : serverProjects[0].id;
+            }
+
+            return currentSelection ?? serverProjects[0].id;
+          });
+
+          return;
+        }
+      } catch (error) {
+        console.error("Erro ao carregar projetos da API:", error);
+      }
+
+      const fallbackProjects = loadLocalProjects();
+      setProjects(fallbackProjects);
+      setSelectedProjectId(fallbackProjects[0]?.id ?? starterProjects[0].id);
+    }
+
+    loadProjectsFromServer();
+  }, []);
 
   const selectedProject =
     projects.find((project) => project.id === selectedProjectId) ?? projects[0];
+  const messages = selectedProject?.messages ?? [];
 
-  function addProject() {
+  useEffect(() => {
+    if (projects.length > 0) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(projects));
+    }
+  }, [projects]);
+
+  useEffect(() => {
+    if (selectedProjectId) {
+      localStorage.setItem(SELECTED_PROJECT_KEY, String(selectedProjectId));
+    }
+  }, [selectedProjectId]);
+
+  useEffect(() => {
+    if (!projects.length) {
+      const fallbackProjects = loadLocalProjects();
+      setProjects(fallbackProjects);
+      setSelectedProjectId(fallbackProjects[0]?.id ?? starterProjects[0].id);
+      return;
+    }
+
+    const hasSelected = projects.some((project) => project.id === selectedProjectId);
+
+    if (!hasSelected && selectedProjectId !== null) {
+      setSelectedProjectId(projects[0].id);
+    }
+  }, [projects, selectedProjectId]);
+
+  async function addProject() {
     const trimmedName = projectName.trim();
 
     if (!trimmedName) {
       return;
     }
 
-    const newProject = {
-      id: Date.now(),
-      name: trimmedName,
-      focus: "Novo conceito de jogo",
-      updatedAt: "agora",
-      lastIdea: "Projeto em andamento com foco em ideias iniciais de gameplay.",
-    };
+    try {
+      const response = await fetch("/api/projects", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: trimmedName,
+          focus: "Novo conceito de jogo",
+          lastIdea: "Projeto em andamento com foco em ideias iniciais de gameplay.",
+          messages: [
+            {
+              type: "bot",
+              text: `Vamos começar o projeto ${trimmedName}. Qual é a principal ideia do seu jogo?`,
+            },
+          ],
+        }),
+      });
+
+      const createdProject = await response.json();
+
+      if (!response.ok) {
+        throw new Error(createdProject.message || "Erro ao criar projeto");
+      }
+
+      setProjects((previousProjects) => [createdProject, ...previousProjects]);
+      setSelectedProjectId(createdProject.id);
+      setProjectName("");
+      return;
+    } catch (error) {
+      console.error("Erro ao criar projeto no backend:", error);
+    }
+
+    const newProject = buildProject(
+      trimmedName,
+      "Novo conceito de jogo",
+      "Projeto em andamento com foco em ideias iniciais de gameplay.",
+      [
+        {
+          type: "bot",
+          text: `Vamos começar o projeto ${trimmedName}. Qual é a principal ideia do seu jogo?`,
+        },
+      ],
+    );
 
     setProjects((previousProjects) => [newProject, ...previousProjects]);
     setSelectedProjectId(newProject.id);
     setProjectName("");
   }
 
-  function updateSelectedProject(summaryText) {
+  function updateProjectMessages(projectId, nextMessages, summaryText) {
     setProjects((previousProjects) =>
       previousProjects.map((project) =>
-        project.id === selectedProjectId
+        project.id === projectId
           ? {
               ...project,
-              updatedAt: "agora",
+              messages: nextMessages,
               lastIdea: summaryText,
+              updatedAt: "agora",
             }
           : project,
       ),
@@ -120,13 +286,19 @@ function App() {
       return;
     }
 
-    setMessages((previousMessages) => [
-      ...previousMessages,
+    if (!selectedProject) {
+      return;
+    }
+
+    const nextMessages = [
+      ...selectedProject.messages,
       {
         type: "user",
         text: trimmed,
       },
-    ]);
+    ];
+
+    updateProjectMessages(selectedProjectId, nextMessages, trimmed);
     setMessage("");
     setIsLoading(true);
 
@@ -141,28 +313,26 @@ function App() {
 
       const data = await response.json();
       const botReply = data.response || data.message || buildLocalReply(trimmed);
-
-      setMessages((previousMessages) => [
-        ...previousMessages,
+      const finalMessages = [
+        ...nextMessages,
         {
           type: "bot",
           text: botReply,
         },
-      ]);
+      ];
 
-      updateSelectedProject(botReply);
+      updateProjectMessages(selectedProjectId, finalMessages, botReply);
     } catch (error) {
       const fallbackReply = buildLocalReply(trimmed);
-
-      setMessages((previousMessages) => [
-        ...previousMessages,
+      const finalMessages = [
+        ...nextMessages,
         {
           type: "bot",
           text: fallbackReply,
         },
-      ]);
+      ];
 
-      updateSelectedProject(fallbackReply);
+      updateProjectMessages(selectedProjectId, finalMessages, fallbackReply);
     } finally {
       setIsLoading(false);
     }
