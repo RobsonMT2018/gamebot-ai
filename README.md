@@ -2,14 +2,14 @@
 
 # 🎮 GameBot AI
 
-### 🤖 Assistente inteligente para ideação e desenvolvimento de jogos
+### 🤖 Assistente inteligente para criação de jogos com IA
 
 <p>
-  <strong>Crie, organize e evolua ideias de jogos com IA.</strong>
+  <strong>Transforme ideias em conceitos, personagens, missões e cenários de jogo.</strong>
 </p>
 
 <p>
-  O GameBot AI combina React no frontend, Node.js + Express no backend e integração com OpenAI para apoiar a criação de personagens, missões, fases e conceitos de jogos digitais.
+  O GameBot AI é um projeto de MVP que conecta frontend em React, backend em Node.js + Express e integração com OpenAI para auxiliar no processo criativo de desenvolvimento de jogos.
 </p>
 
 <br>
@@ -23,23 +23,36 @@
 
 ---
 
-## 🏗️ Visão geral
+## 🧭 Visão geral do projeto
 
-O projeto foi pensado como um assistente de criação de jogos com foco em produtividade e experiência de usuário. Ele permite:
+O GameBot AI foi criado para apoiar o processo de ideação de jogos de forma prática e visual. A aplicação permite:
 
 - criar projetos de jogo
-- manter histórico por projeto
-- conversar com a IA sobre ideias, personagens e missões
+- manter conversas por projeto
+- gerar ideias de gameplay, personagens, missões e fases
+- salvar e continuar o trabalho após reload
 - receber respostas em português
-- continuar trabalhando mesmo quando a chave da OpenAI não estiver configurada, usando fallback local
+- manter a aplicação funcional mesmo sem chave da OpenAI, usando fallback local
 
-### Fase 1 — Fundação
+O principal objetivo do projeto é transformar a conversa em um fluxo produtivo de criação de game design, com foco em protótipos rápidos, organização e experimentação.
+
+---
+
+## 🏗️ Arquitetura do processo e evolução por fases
+
+### Fase 1 — Fundação da plataforma
 
 <p align="center">
   <img src="./project-phase1-architecture.svg" alt="Arquitetura da Fase 1 do GameBot AI" width="1100" />
 </p>
 
-Nesta fase a base foi criada: frontend em React, backend em Express, rota de chat e integração com a IA.
+Nesta fase foi montada a base do sistema:
+
+- frontend em React
+- backend em Express
+- comunicação com a API de IA
+- rota de chat inicial
+- estrutura básica do projeto e do fluxo de dados
 
 ### Fase 2 — Game Studio e gestão de projetos
 
@@ -47,7 +60,13 @@ Nesta fase a base foi criada: frontend em React, backend em Express, rota de cha
   <img src="./project-phase2-architecture.svg" alt="Arquitetura da Fase 2 do GameBot AI" width="1100" />
 </p>
 
-Nesta fase foram adicionados painel de projetos, criação de novos projetos, seleção do projeto ativo e persistência do histórico por contexto.
+Nesta etapa a plataforma passou a lidar com projetos reais:
+
+- painel lateral com lista de projetos
+- criação de novos projetos
+- seleção de projeto ativo
+- histórico por contexto
+- armazenamento local e sincronização com o backend
 
 ### Fase 3 — Expansão do produto
 
@@ -55,7 +74,12 @@ Nesta fase foram adicionados painel de projetos, criação de novos projetos, se
   <img src="./project-phase3-architecture.svg" alt="Arquitetura da Fase 3 do GameBot AI" width="1100" />
 </p>
 
-Nesta fase a plataforma evolui para um produto mais completo, com foco em autenticação, banco de dados e expansão para personagens, mundos e exportação de ideias.
+Neste momento o produto foi expandido para um modelo mais robusto, com foco em:
+
+- evolução para um ambiente mais completo de criação
+- estrutura para autenticação e dados persistentes
+- expansão de personagens, mundos e missões
+- preparação para exportação de ideias e evolução de features
 
 ### Fase 4 — Publicação e operação
 
@@ -63,11 +87,20 @@ Nesta fase a plataforma evolui para um produto mais completo, com foco em autent
   <img src="./project-phase4-architecture.svg" alt="Arquitetura da Fase 4 do GameBot AI" width="1100" />
 </p>
 
-Na fase final, o sistema entra em ciclo de operação, deploy, testes e manutenção contínua, preparando a aplicação para produção.
+A fase final organizou o sistema para operação, manutenção e publicação:
+
+- testes do backend
+- build do frontend
+- organização do projeto para ambiente de produção
+- versionamento e estrutura para continuidade do produto
+
+### Arquitetura geral do sistema
 
 <p align="center">
   <img src="./project-architecture.svg" alt="Arquitetura geral do GameBot AI" width="1000" />
 </p>
+
+### Fluxo principal de interação
 
 <p align="center">
   <img src="./project-flow.svg" alt="Fluxo principal do GameBot AI" width="1100" />
@@ -75,27 +108,25 @@ Na fase final, o sistema entra em ciclo de operação, deploy, testes e manuten�
 
 ---
 
-## ✨ Funcionalidades
+## ✨ Funcionalidades implementadas
 
 ### Chat inteligente
-- sugestões de ideias para jogos
-- criação de personagens, missões, fases e desafios
+- geração de ideias para jogos
+- sugestões de personagens e mecânicas
+- propostas de fases, missões e desafios
 - respostas em português
-- visual gamer e ambiente moderno
 
 ### Gestão de projetos
-- painel lateral com projetos
-- criação de projetos em tempo real
+- criação de projetos
 - seleção do projeto ativo
-- histórico por projeto
-- persistência local no frontend
+- histórico de mensagens por projeto
+- persistência de estado no navegador e backend
 
-### Backend e API
-- servidor em Express
+### API e integração
 - rota de saúde em /api/health
 - rota de chat em /api/chat
 - rota de projetos em /api/projects
-- fallback funcional quando a IA não está disponível
+- resposta local de fallback quando a OpenAI não está disponível
 
 ---
 
@@ -104,11 +135,14 @@ Na fase final, o sistema entra em ciclo de operação, deploy, testes e manuten�
 ```text
 gamebot-ai/
 ├── README.md
-├── .gitignore
 ├── LICENSE
+├── .gitignore
 ├── project-architecture.svg
 ├── project-flow.svg
-├── project-phase2.svg
+├── project-phase1-architecture.svg
+├── project-phase2-architecture.svg
+├── project-phase3-architecture.svg
+├── project-phase4-architecture.svg
 ├── package-lock.json
 ├── gamebot-ai/
 │   ├── package.json
@@ -140,14 +174,13 @@ gamebot-ai/
 │           │   ├── gameRoutes.js
 │           │   └── projectsRoutes.js
 │           └── services/
-│               ├── aiService.js
-│               ├── api.js
-│               └── gamebotService.js
+│               ├── gamebotService.js
+│               └── ...
 ```
 
 ---
 
-## 🛠️ Tecnologias
+## 🛠️ Stack tecnológica
 
 - React + Vite
 - JavaScript
@@ -161,14 +194,14 @@ gamebot-ai/
 
 ## 🚀 Como executar
 
-### 1. Clone o repositório
+### 1. Clonar o repositório
 
 ```bash
 git clone https://github.com/RobsonMT2018/gamebot-ai.git
 cd gamebot-ai
 ```
 
-### 2. Instale as dependências
+### 2. Instalar dependências
 
 ```bash
 npm install
@@ -176,32 +209,31 @@ npm --prefix gamebot-ai/client install
 npm --prefix gamebot-ai/server install
 ```
 
-### 3. Configure as variáveis de ambiente
+### 3. Configurar ambiente
 
-No backend, copie o arquivo de exemplo e configure a chave da OpenAI:
+No backend, copie o arquivo de exemplo:
 
 ```bash
 cp gamebot-ai/server/.env.example gamebot-ai/server/.env
 ```
 
-Arquivo esperado:
+Em seguida, configure a variável da OpenAI:
 
 ```env
 PORT=5000
 OPENAI_API_KEY=sua_chave_da_openai
 ```
 
-> Se a chave não estiver configurada, o sistema usa resposta local de fallback para manter a aplicação funcionando.
+> Se a chave não estiver configurada, o backend entra em fallback local para não interromper a experiência.
 
-### 4. Inicie o projeto
-
-Na raiz do projeto:
+### 4. Iniciar a aplicação
 
 ```bash
-npm run dev
+cd gamebot-ai/server && npm start
+cd gamebot-ai/client && npm run dev
 ```
 
-### 5. Acesse a aplicação
+### 5. Acessar localmente
 
 - Frontend: http://localhost:5173
 - Backend: http://localhost:5000
@@ -209,54 +241,65 @@ npm run dev
 
 ---
 
-## 🧪 Validação
+## 🧪 Validação executada
 
-Atualmente o projeto possui:
-
-- build do frontend funcionando
-- backend em execução
-- rota de chat validada
-- rota de projetos validada
-- testes do backend executando corretamente
-
-Comando de verificação utilizado:
+O projeto foi validado com execução real:
 
 ```bash
-cd /workspaces/gamebot-ai/gamebot-ai/server && node --test
+cd /workspaces/gamebot-ai/gamebot-ai/server && npm test
+cd /workspaces/gamebot-ai/gamebot-ai/client && npm run build
 ```
 
-Resultado verificado: 3 testes aprovados, 0 falhas.
+Resultado verificado:
+
+- backend: 4 testes aprovados
+- frontend: build do Vite concluído com sucesso
 
 ---
 
-## 📌 Status do projeto
+## 📌 Status das fases
 
-### Fases concluídas
-- [x] Estrutura do monorepo
-- [x] Frontend em React + Vite
-- [x] Backend em Express
-- [x] Chat com IA e fallback
-- [x] Gestão de projetos
-- [x] Persistência de projetos e mensagens via API
-- [x] Atualização do README por fase concluída
-- [x] Versionamento no GitHub
+- [x] Fase 1 — Fundação e arquitetura inicial
+- [x] Fase 2 — Game Studio e gestão de projetos
+- [x] Fase 3 — Expansão do produto
+- [x] Fase 4 — Publicação e operação
 
-### Fase 3 — expansão do produto
-- [x] continuação por projeto
-- [x] histórico de mensagens preservado
-- [x] sincronização de estado com o backend
-- [x] fluxo de criação e atualização de projetos
-
-### Próximos passos
-- [ ] geração de personagens, mundos e missões mais avançados
-- [ ] exportação de ideias em JSON, markdown ou arquivos
-- [ ] melhorias de UX e navegação
-- [ ] deploy do projeto
-- [ ] integração com banco de dados e autenticação
+### Próximos passos sugeridos
+- [ ] personagens e mundos mais detalhados
+- [ ] geração de fases e mapas
+- [ ] exportação de ideias em arquivos
+- [ ] banco de dados e autenticação
+- [ ] deploy em ambiente público
 
 ---
 
 ## 🔐 Segurança
+
+- nunca compartilhe a chave da OpenAI publicamente
+- mantenha o arquivo .env apenas no ambiente local
+- o arquivo .env foi mantido fora do controle de versão
+
+---
+
+## 👨‍💻 Desenvolvedor
+
+Robson Maciel
+
+---
+
+## 📄 Licença
+
+Este projeto está sob a licença MIT.
+
+---
+
+<div align="center">
+
+### 🎮 GameBot AI
+
+<strong>Transformando ideias em mundos digitais.</strong>
+
+</div>
 
 - nunca compartilhe a chave da OpenAI publicamente
 - mantenha o arquivo .env localmente
