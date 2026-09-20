@@ -3,11 +3,10 @@
 
 # 🎮 GameBot AI
 <div align="center">
-Assistente inteligente para criação de jogos com IA
+    Assistente inteligente para criação de jogos com IA
 </div>
-<p>
+
   <strong>Transforme ideias em conceitos, personagens, missões e cenários de jogo.</strong>
-</p>
 
 <p>
   O GameBot AI é um projeto de MVP que conecta frontend em React, backend em Node.js + Express e integração com OpenAI para auxiliar no processo criativo de desenvolvimento de jogos.
