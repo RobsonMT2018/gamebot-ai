@@ -1,13 +1,10 @@
 <img src="https://komarev.com/ghpvc/?username=robsonmt2018&label=PROFILE+VIEWS&color=00D9FF&style=for-the-badge" alt="Profile Views"/><img src="https://img.shields.io/github/followers/robsonmt2018?label=FOLLOWERS&style=for-the-badge&color=0066FF&labelColor=080B18" alt="GitHub Followers"/>
 ---
 
-
-<div align="center">
-
 # 🎮 GameBot AI
-
+<div align="center">
 ### 🤖 Assistente inteligente para criação de jogos com IA
-
+</div>
 <p>
   <strong>Transforme ideias em conceitos, personagens, missões e cenários de jogo.</strong>
 </p>
@@ -22,8 +19,6 @@
 <img src="https://img.shields.io/badge/Node.js-Backend-339933?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js" />
 <img src="https://img.shields.io/badge/OpenAI-API-412991?style=for-the-badge&logo=openai&logoColor=white" alt="OpenAI" />
 <img src="https://img.shields.io/badge/Status-MVP-orange?style=for-the-badge" alt="Status" />
-
-</div>
 
 ---
 
