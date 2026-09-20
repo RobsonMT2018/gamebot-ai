@@ -3,9 +3,7 @@
 
 # 🎮 GameBot AI
 <div align="center">
-```
-# 🤖 Assistente inteligente para criação de jogos com IA
-```
+Assistente inteligente para criação de jogos com IA
 </div>
 <p>
   <strong>Transforme ideias em conceitos, personagens, missões e cenários de jogo.</strong>
