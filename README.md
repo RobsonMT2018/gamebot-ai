@@ -7,10 +7,11 @@
 </div>
 <br>
 <strong>Transforme ideias em conceitos, personagens, missões e cenários de jogo.</strong>
+<br>
 
-<p>
+<strong>
   O GameBot AI é um projeto de MVP que conecta frontend em React, backend em Node.js + Express e integração com OpenAI para auxiliar no processo criativo de desenvolvimento de jogos.
-</p>
+</strong>
 
 <br>
 
